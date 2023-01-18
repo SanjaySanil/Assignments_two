@@ -1,6 +1,6 @@
-import 'package:demo/tourism_app_advanced_ui/tourism_app_advanced_main.dart';
+import 'package:demo/music_player_ui/music_palyer_ui_main.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const TourismAppAdvancedUIMain());
+  runApp(const MusicPlayerUIMain());
 }
