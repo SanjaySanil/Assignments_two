@@ -1,4 +1,5 @@
 import 'package:demo/music_player_ui/home_screen/home_screen/home_screen_musify.dart';
+import 'package:demo/music_player_ui/home_screen/playlist_screen/highlights_screne.dart';
 import 'package:demo/music_player_ui/home_screen/search_screen/search_screen.dart';
 import 'package:demo/music_player_ui/home_screen/settings_screen/settigs_screen.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
@@ -22,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> bottomBarItems = [
     HomeScreenMusify(),
     SearchScreenMusify(),
-    HighlightsScreenMusify(),
+    PlaylistsScreen(),
     SettingsScreenMusify()
   ];
   @override
@@ -32,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          "Musify.",
+          "${_selectedIndex==2?"Playlists":"Musify"}",
           style:Theme.of(context).textTheme.headline2,
         ),
       ),
@@ -64,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
             activeColor: Colors.pink.shade100,
             inactiveColor: Colors.white,
             icon: Icon(Icons.book),
-            title: Text('Highlights', style: TextStyle(fontSize: 18)),
+            title: Text('Playlists', style: TextStyle(fontSize: 18)),
           ),
           FlashyTabBarItem(
             activeColor: Colors.pink.shade100,
