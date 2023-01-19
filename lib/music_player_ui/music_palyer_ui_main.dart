@@ -1,4 +1,5 @@
 import 'package:demo/music_player_ui/home_screen/home_screen.dart';
+import 'package:demo/music_player_ui/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 class MusicPlayerUIMain extends StatelessWidget {
@@ -10,9 +11,9 @@ class MusicPlayerUIMain extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.homeScree,
       themeMode: ThemeMode.dark,
-      darkTheme:ThemeData(brightness:Brightness.dark),
+      darkTheme: TAppTheme.darkTheme,
       routes: {
-        HomeScreen.homeScree: (context) => const HomeScreen(),
+        HomeScreen.homeScree: (context) => HomeScreen(),
       },
     );
   }

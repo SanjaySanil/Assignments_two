@@ -1,9 +1,30 @@
+import 'package:demo/music_player_ui/home_screen/home_screen/home_screen_musify.dart';
+import 'package:demo/music_player_ui/home_screen/search_screen/search_screen.dart';
+import 'package:demo/music_player_ui/home_screen/settings_screen/settigs_screen.dart';
+import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+import 'highlight_screen/highlights_screne.dart';
+
+class HomeScreen extends StatefulWidget {
+  HomeScreen({Key? key}) : super(key: key);
   static String homeScree = "homeScreen";
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+
+int _selectedIndex = 0;
+
+class _HomeScreenState extends State<HomeScreen> {
+
+  List<Widget> bottomBarItems = [
+    HomeScreenMusify(),
+    SearchScreenMusify(),
+    HighlightsScreenMusify(),
+    SettingsScreenMusify()
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,29 +33,48 @@ class HomeScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           "Musify.",
-          style: TextStyle(fontSize: 40, color: Colors.pink.shade100),
+          style:Theme.of(context).textTheme.headline2,
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+      bottomNavigationBar: FlashyTabBar(
+        backgroundColor: Colors.black,
+        selectedIndex: _selectedIndex,
+        showElevation: true,
+        iconSize: 25,
+        onItemSelected: (index) => setState(() {
+          _selectedIndex = index;
+        }),
+        items: [
+          FlashyTabBarItem(
+            activeColor: Colors.pink.shade100,
+            inactiveColor: Colors.white,
+            icon: Icon(Icons.home),
+            title: Text(
+              'Home',
+              style: TextStyle(fontSize: 18),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              label: 'Profile',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag),
-              label: 'Shop',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag),
-              label: 'Shop',
-            ),
-          ]
+          ),
+          FlashyTabBarItem(
+            activeColor: Colors.pink.shade100,
+            inactiveColor: Colors.white,
+            icon: Icon(Icons.search),
+            title: Text('Search', style: TextStyle(fontSize: 18)),
+          ),
+          FlashyTabBarItem(
+            activeColor: Colors.pink.shade100,
+            inactiveColor: Colors.white,
+            icon: Icon(Icons.book),
+            title: Text('Highlights', style: TextStyle(fontSize: 18)),
+          ),
+          FlashyTabBarItem(
+            activeColor: Colors.pink.shade100,
+            inactiveColor: Colors.white,
+            icon: Icon(Icons.more_horiz),
+            title: Text('Settings', style: TextStyle(fontSize: 18)),
+          ),
+        ],
       ),
+      body: bottomBarItems[_selectedIndex],
     );
   }
 }
