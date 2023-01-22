@@ -4,5 +4,8 @@ class Assets {
 
   static const String tourismTwoImagesAirplane = 'assets/images/tourism_two_images/airplane.png';
   static const String tourismTwoImagesSort = 'assets/images/tourism_two_images/sort.png';
+  static const String walletApp3dRenderHandHoldingTransactionReceiptBill = 'assets/images/wallet_app/3d-render-hand-holding-transaction-receipt-bill.png';
+  static const String walletAppCard = 'assets/images/wallet_app/card.png';
+  static const String walletAppGold = 'assets/images/wallet_app/gold.png';
 
 }

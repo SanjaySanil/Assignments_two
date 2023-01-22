@@ -4,9 +4,6 @@ import 'package:demo/music_player_ui/home_screen/search_screen/search_screen.dar
 import 'package:demo/music_player_ui/home_screen/settings_screen/settigs_screen.dart';
 import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
-
-import 'highlight_screen/highlights_screne.dart';
-
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
   static String homeScree = "homeScreen";
